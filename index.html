@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Telecode POC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    </head>
+    <body>
+        <main></main>
+        <script src="./static/main.js"></script>
+        <script>
+            let words = [
+                "worse", "boats", "tells", "fiber", "graph", "talks", "bonds", "fraud", "roger", "stack", "curve",
+                "amber", "trunk", "waves", "camel", "lamps", "juice", "chase", "sauce", "beads", "flows", "fewer",
+                "proxy", "lanka", "voted", "bikes", "gates", "slave", "lycos", "zdnet", "combo", "haven", "charm",
+                "basin", "ranch", "drunk", "toner", "latex", "delhi", "alien", "broke", "nepal", "nylon", "discs",
+                "rocky", "fleet", "bunch", "cents", "omega", "civic", "saver", "grill", "grain", "wanna", "seeks",
+                "gains", "spots", "salon", "turbo", "thats", "aimed", "reset", "brush", "spare", "kodak", "skirt",
+                "honey", "gauge", "faced", "sixth", "farms", "cheat", "sandy", "macro", "laugh", "pitch", "autos",
+                "perry", "dozen", "teeth", "cloth", "stamp", "lotus", "cargo", "salem", "likes", "tapes", "flour"
+            ]
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            shuffle(words)
+
+            const app = Elm.Main.init({
+                node: document.querySelector('main'),
+                flags: words
+            })
+        </script>
+    </body>
+</html>
