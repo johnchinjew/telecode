@@ -42,7 +42,7 @@ type Turn
 
 init : List String -> ( Model, Cmd Msg )
 init words =
-    ( Model ClueGiver 0 "" Set.empty Set.empty 0 [ 1, 2, 1, 2, 3, 2, 1, 2, 3, 4, 3, 2 ] (List.take 9 words) (List.drop 9 words)
+    ( Model ClueGiver 0 "" Set.empty Set.empty 0 [ 1, 2, 2, 3, 1, 2, 3, 2, 1, 4 ] (List.take 9 words) (List.drop 9 words)
     , Cmd.none
     )
 
