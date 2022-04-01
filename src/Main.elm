@@ -125,13 +125,13 @@ view model =
             Html.div
                 []
                 [ Html.p [] [ Html.text <| "Score: " ++ String.fromInt model.score ]
-                , Html.p [] [ Html.text <| "Create a clue connecting " ++ (String.fromInt <| currentQuota model) ++ " words." ]
+                , Html.p [] [ Html.text <| "Create a single-word clue connecting " ++ (String.fromInt <| currentQuota model) ++ " words." ]
                 , wordGrid model.clueSelected model
                 , Html.br [] []
                 , Html.input [ Attributes.value model.clueValue, Events.onInput ClueValueChanged ] []
                 , Html.button
                     [ Events.onClick SubmitClue
-                    , Attributes.disabled (Set.size model.clueSelected /= currentQuota model)
+                    , Attributes.disabled <| (Set.size model.clueSelected /= currentQuota model) || (1 /= (List.length <| String.words model.clueValue))
                     ]
                     [ Html.text <| "Submit (" ++ (String.fromInt <| Set.size model.clueSelected) ++ "/" ++ (String.fromInt <| currentQuota model) ++ ")" ]
                 ]

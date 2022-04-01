@@ -5315,7 +5315,7 @@ var $author$project$Main$init = function (words) {
 			$elm$core$Set$empty,
 			0,
 			_List_fromArray(
-				[1, 2, 1, 2, 3, 2, 1, 2, 3, 4, 3, 2]),
+				[1, 2, 2, 3, 1, 2, 3, 2, 1, 4]),
 			A2($elm$core$List$take, 9, words),
 			A2($elm$core$List$drop, 9, words)),
 		$elm$core$Platform$Cmd$none);
@@ -6228,6 +6228,7 @@ var $author$project$Main$wordGrid = F2(
 							A2($elm$core$List$drop, 6, model.activeWords))))
 				]));
 	});
+var $elm$core$String$words = _String_words;
 var $author$project$Main$view = function (model) {
 	var _v0 = model.turn;
 	if (_v0.$ === 'ClueGiver') {
@@ -6250,7 +6251,7 @@ var $author$project$Main$view = function (model) {
 					_List_fromArray(
 						[
 							$elm$html$Html$text(
-							'Create a clue connecting ' + ($elm$core$String$fromInt(
+							'Create a single-word clue connecting ' + ($elm$core$String$fromInt(
 								$author$project$Main$currentQuota(model)) + ' words.'))
 						])),
 					A2($author$project$Main$wordGrid, model.clueSelected, model),
@@ -6269,9 +6270,10 @@ var $author$project$Main$view = function (model) {
 						[
 							$elm$html$Html$Events$onClick($author$project$Main$SubmitClue),
 							$elm$html$Html$Attributes$disabled(
-							!_Utils_eq(
+							(!_Utils_eq(
 								$elm$core$Set$size(model.clueSelected),
-								$author$project$Main$currentQuota(model)))
+								$author$project$Main$currentQuota(model))) || (1 !== $elm$core$List$length(
+								$elm$core$String$words(model.clueValue))))
 						]),
 					_List_fromArray(
 						[
